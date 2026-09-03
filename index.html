@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mazana Creation - Exclusive Saree Store</title>
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- EMBEDDED STYLES (Taaki design load hone ki koi problem na ho) -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #2b0509; /* Premium Dark Royal Maroon Theme for full page */
+            color: #f3e9dc;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header / Navbar */
+        header {
+            background: linear-gradient(135deg, #1f0306, #3a080d);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            border-bottom: 2px solid #e6c56b;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            letter-spacing: 1.5px;
+            color: #e6c56b;
+            font-family: serif;
+        }
+
+        .logo p {
+            font-size: 10px;
+            font-style: italic;
+            color: #d8d8d8;
+        }
+
+        /* Navigation Boxes */
+        .nav-links {
+            display: flex;
+            gap: 8px;
+        }
+
+        .nav-btn {
+            background-color: rgba(230, 197, 107, 0.15);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 6px 12px;
+            font-size: 13px;
+            font-weight: 500;
+            border-radius: 6px;
+            border: 1px solid #e6c56b;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background-color: #e6c56b;
+            color: #2b0509;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section inside a Box/Banner */
+        .hero {
+            background: linear-gradient(rgba(31, 3, 6, 0.8), rgba(31, 3, 6, 0.8)), url('https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&q=80&w=1200') no-repeat center center/cover;
+            padding: 60px 20px;
+            margin: 20px;
+            border-radius: 12px;
+            text-align: center;
+            color: white;
+            border: 1px solid #e6c56b;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+        }
+
+        .hero-content h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #e6c56b;
+            font-family: serif;
+        }
+
+        .hero-content p {
+            font-size: 15px;
+            margin-bottom: 20px;
+            color: #e0d0c0;
+        }
+
+        .btn {
+            background-color: #e6c56b;
+            color: #2b0509;
+            padding: 10px 25px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 25px;
+            display: inline-block;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background-color: white;
+            color: #2b0509;
+        }
+
+        /* Collection Section Wrapper Box */
+        .collection {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            flex: 1;
+        }
+
+        .collection h2 {
+            font-size: 30px;
+            color: #e6c56b;
+            margin-bottom: 30px;
+            font-family: serif;
+            position: relative;
+        }
+
+        .collection h2::after {
+            content: '';
+            width: 70px;
+            height: 3px;
+            background-color: #e6c56b;
+            display: block;
+            margin: 8px auto 0;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        /* Premium Product Box Design */
+        .product-card {
+            background: #ffffff;
+            color: #2b0509;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #e6c56b;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .image-container {
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.06);
+        }
+
+        .badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #2b0509;
+            color: #e6c56b;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 4px 8px;
+            border-radius: 4px;
+            z-index: 2;
+            border: 1px solid #e6c56b;
+        }
+
+        .product-card h3 {
+            font-size: 16px;
+            margin: 12px 0 6px;
+            color: #1f0306;
+            font-weight: 600;
+        }
+
+        .price {
+            font-size: 18px;
+            color: #b8860b;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: #25d366;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 14px;
+            width: 100%;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #1ebe57;
+        }
+
+        /* About Section Box */
+        .about {
+            background-color: #3a080d;
+            padding: 40px 20px;
+            text-align: center;
+            max-width: 900px;
+            margin: 40px auto;
+            border-radius: 12px;
+            border: 1px solid #e6c56b;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .about h2 {
+            color: #e6c56b;
+            margin-bottom: 12px;
+            font-size: 24px;
+            font-family: serif;
+        }
+
+        .about p {
+            color: #f1e4d8;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        /* Footer Box */
+        .footer {
+            background: linear-gradient(135deg, #1f0306, #2b0509);
+            color: white;
+            padding: 30px 20px 15px 20px;
+            border-top: 3px solid #e6c56b;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(230, 197, 107, 0.2);
+        }
+
+        .footer-section h3 {
+            color: #e6c56b;
+            margin-bottom: 10px;
+            font-size: 18px;
+            font-family: serif;
+        }
+
+        .footer-section p {
+            color: #d8d8d8;
+            font-size: 13px;
+            margin-bottom: 6px;
+        }
+
+        .footer-section i {
+            color: #e6c56b;
+            margin-right: 6px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 15px;
+            font-size: 12px;
+            color: #aaaaaa;
+        }
+
+        /* Mobile Responsive */
+        @media(max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 10px;
+                padding: 12px;
+                text-align: center;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hero {
+                margin: 10px;
+                padding: 40px 15px;
+            }
+            .hero-content h2 {
+                font-size: 24px;
+            }
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <h1>Mazana Creation</h1>
+            <p>Elegance in Every Drape</p>
+        </div>
+        <nav class="nav-links">
+            <a href="#home" class="nav-btn">Home</a>
+            <a href="#collection" class="nav-btn">Collection</a>
+            <a href="#about" class="nav-btn">About Us</a>
+            <a href="#contact" class="nav-btn">Contact Us</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Discover Traditional & Modern Sarees</h2>
+            <p>Handpicked collection straight from weavers to your wardrobe.</p>
+            <a href="#collection" class="btn">Explore Collection</a>
+        </div>
+    </section>
+
+    <!-- Collection Section -->
+    <section id="collection" class="collection">
+        <h2>Our Exclusive Collection</h2>
+        <div class="product-grid">
+
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="image-container">
+                    <span class="badge">Best Seller</span>
+                    <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&q=80&w=500" alt="Banarasi Silk Saree">
+                </div>
+                <h3>Royal Banarasi Silk Saree</h3>
+                <p class="price">₹2,499</p>
+                <a href="https://wa.me/919876543210?text=Hi,%20I%20want%20to%20order%20Royal%20Banarasi%20Silk%20Saree%20(Price:%20₹2,499)" target="_blank" class="whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i> Order on WhatsApp
+                </a>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="image-container">
+                    <span class="badge">Trending</span>
+                    <img src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&q=80&w=500" alt="Kanjivaram Saree">
+                </div>
+                <h3>Traditional Kanjivaram Saree</h3>
+                <p class="price">₹3,299</p>
+                <a href="https://wa.me/919876543210?text=Hi,%20I%20want%20to%20order%20Traditional%20Kanjivaram%20Saree%20(Price:%20₹3,299)" target="_blank" class="whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i> Order on WhatsApp
+                </a>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="image-container">
+                    <span class="badge">New Arrival</span>
+                    <img src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&q=80&w=500" alt="Designer Party Wear Saree">
+                </div>
+                <h3>Designer Party Wear Saree</h3>
+                <p class="price">₹1,899</p>
+                <a href="https://wa.me/919876543210?text=Hi,%20I%20want%20to%20order%20Designer%20Party%20Wear%20Saree%20(Price:%20₹1,899)" target="_blank" class="whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i> Order on WhatsApp
+                </a>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="image-container">
+                    <span class="badge">Special Offer</span>
+                    <img src="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&q=80&w=500" alt="Chiffon Printed Saree">
+                </div>
+                <h3>Chiffon Daily Wear Saree</h3>
+                <p class="price">₹999</p>
+                <a href="https://wa.me/919876543210?text=Hi,%20I%20want%20to%20order%20Chiffon%20Daily%20Wear%20Saree%20(Price:%20₹999)" target="_blank" class="whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i> Order on WhatsApp
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>About Mazana Creation</h2>
+        <p>Mazana Creation brings you the finest selection of Indian ethnic wear. From pure silk to lightweight daily wear chiffons, we ensure premium quality at the best prices directly to your doorstep.</p>
+    </section>
+
+    <!-- Footer / Contact Us Section -->
+    <footer id="contact" class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Mazana Creation</h3>
+                <p>Your ultimate destination for royal and traditional sarees.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-phone"></i> Phone: +91 98765 43210</p>
+                <p><i class="fas fa-envelope"></i> Email: info@mazanacreation.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Location: Surat, Gujarat, India</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Mazana Creation. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
